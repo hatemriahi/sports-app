@@ -1,3 +1,11 @@
+ion-content {
+  --padding-top : 5px;
+  --padding-bottom : 5px;
+  --padding-end	 : 10px;
+  --padding-start : 10px;
+  --ion-background-color:#fff;
+}
+
 #container {
   text-align: center;
 
@@ -24,4 +32,126 @@
 
 #container a {
   text-decoration: none;
+}
+ion-toolbar {
+  --background: linear-gradient(to right, #7e7e7e 1%, #3f583d 40%, #689440 85%) !important;
+}
+
+
+
+.top-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 2em;
+}
+
+.top-button {
+  text-transform: none;
+  font-weight: lighter;
+  --box-shadow: -2px 2px 5px rgb(141, 141, 141);
+  --border-radius : 7px;
+  --backgroud-color : #000 ;
+  color : #000 !important;
+}
+
+.images-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1em;
+}
+
+.addedImage {
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+  flex: 50%;
+  padding: 5px;
+  object-fit: cover;
+}
+
+.image-icon {
+  font-size: 125%;
+  color: rgb(90, 90, 90);
+}
+
+span{
+  font-size: 0.9em;
+}
+
+.info{
+  display: flex;
+  padding: 0px 5px;
+  align-items: center;
+
+}
+
+li{
+  display: flex;
+  flex-direction: column;
+  color: gray;
+  margin: 4px;
+  padding: 5px;
+  background-color: rgb(221, 221, 221);
+  width: 50%;
+  border-radius: 10px;
+
+}
+
+ion-avatar {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0em 1.5em;
+}
+
+.add-comment {
+  margin : 0px 1.5em;
+  padding: 0.2em;
+  background-color: rgb(221, 221, 221);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-input{
+  
+  width: 100%;
+}
+
+ion-tab-bar {
+  bottom: 20px;
+  position: relative;
+  border-radius: 16px;
+  width: 80%;
+  margin: 0 auto;
+  --background : rgb(255, 255, 255);
+  box-shadow: -2px 2px 5px rgb(141, 141, 141);
+}
+
+ion-tab-button {
+  --color: var(--ion-color-medium);
+  --color-selected: var(--ion-color-primary);
+
+  &::before {
+    background-color: transparent;
+    display: block;
+    content: "";
+    margin: 0 auto;
+    width: 20px;
+    height: 2px;
+  }
+
+  &.tab-selected::before {
+    background-color: var(--ion-color-primary);
+  }
 }

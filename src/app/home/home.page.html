@@ -1,20 +1,107 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="header">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon src="assets/icon/focus.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon src="assets/icon/location-pin.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="letter-spacing: 0.1em; font-weight: 400; text-align: center;" size="large">
+      Acceuil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <section class="top-buttons">
+    <ion-button class="top-button" color="#fff">Tout </ion-button>
+    <ion-button class="top-button" color="#fff">Hobbies </ion-button>
+    <ion-button class="top-button" color="#fff">Communauté </ion-button>
+  </section>
+
+  <div class="images-list">
+    <div class="inside-image">
+      <img class="addedImage" src="assets/img/model1.jpg">
+      <div class="info">
+        <span style="color:gray">200</span>
+        <ion-icon name="heart-outline" class="image-icon"></ion-icon>
+      </div>
+      
+    </div>
+    
+    <div class="inside-image">
+      <img class="addedImage" src="assets/img/model2.jpg">
+      <div class="info" style="justify-content: right">
+        <span style="color:gray">200</span>
+        <ion-icon name="chatbubble-ellipses-outline" class="image-icon"></ion-icon>
+      </div>
+    </div>
   </div>
+
+ 
+    <div *ngFor="let comment of comments;let i=index" class="comment-item">
+      <ion-avatar>
+        <img src="assets/img/model2.jpg">
+      </ion-avatar>
+      <li style="list-style: none;"> {{comment.text}} <ion-img  *ngIf="comment.imagePath" [src]="comment.imagePath" style="width: 50px;height: 50px;"></ion-img></li>
+      
+    </div>
+  
+
+
+
+
+
+
+  <div class="add-comment">
+    <ion-avatar>
+      <img src="assets/img/model2.jpg">
+    </ion-avatar>
+    <div class="comment-input">
+      <ion-input placeholder="Ecrivez un commentaire..." [(ngModel)]="inputValue" style="color: gray;font-weight: bold;"></ion-input>
+    </div>
+    
+    
+    <ion-icon name="image" class="image-icon" (click)="presentAlert()" style="padding: 0px 4px;"></ion-icon>
+    <ion-icon name="send" class="image-icon" *ngIf="inputValue || imageSrc" (click)="addElement()" style="padding: 0px 4px;"></ion-icon>
+  </div>
+
+  
+  <ion-img  *ngIf="imageSrc" [src]="imageSrc" style="width: 100px;height: 100px;"></ion-img>
+
+
+  
+
+
+
 </ion-content>
+
+
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" layout="icon-top">
+      <ion-icon name="home-outline"></ion-icon>
+      
+    </ion-tab-button>
+
+    <ion-tab-button tab="chatbox" layout="icon-top">
+      <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="add" layout="icon-top">
+      <ion-icon name="add-outline"></ion-icon>
+      
+    </ion-tab-button>
+
+    <ion-tab-button tab="notifications" layout="icon-top">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="person" layout="icon-top">
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
